@@ -35,4 +35,36 @@
       padding: 0 2rem;
     }
   }
+   /* Logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .logo-icon {
+    position: relative;
+  }
+  
+  .code-icon {
+    height: 2rem;
+    width: 2rem;
+    color: #06b6d4;
+  }
+  
+  .logo-dot {
+    position: absolute;
+    top: -0.25rem;
+    right: -0.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background: #06b6d4;
+    border-radius: 50%;
+  }
+  
+  .logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+  }
   
