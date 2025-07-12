@@ -61,7 +61,25 @@
     background: #06b6d4;
     border-radius: 50%;
   }
+   .logo-text-ext {
+    position: absolute;
+    top: -1.50rem;
+    right: -0.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+  }
   
+  /* Inside the logo */
+  /* .logo-ext-text {
+    position: absolute;
+    top: 10%;
+    right: 2.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+  } */
+
   .logo-text {
     font-size: 1.25rem;
     font-weight: 700;
