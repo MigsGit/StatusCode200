@@ -173,4 +173,33 @@
       font-size: 1.5rem;
     }
   }
+  .btn-secondary { 
+    border: 2px solid #06b6d4;
+    color: #06b6d4;
+    background: transparent;
+  }
   
+  .btn-secondary:hover {
+    background: #06b6d4;
+    color: #0f172a;
+  }
+   
+  .btn-secondary:hover .btn-icon {
+    transform: translateY(0.25rem);
+  }
+  
+  .btn-primary:hover .btn-icon {
+    transform: translateX(0.25rem);
+  }
+    
+  .btn-primary {
+    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-0.25rem);
+  }
