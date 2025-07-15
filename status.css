@@ -230,4 +230,11 @@
     margin-left: 0.5rem;
     transition: transform 0.2s ease;
   }
-  
+  /* About Section */
+  .about {
+    padding: 5rem 0;
+    background: #1e293b;
+  }
+  .about-footer {
+    text-align: center;
+  }
