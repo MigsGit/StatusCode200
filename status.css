@@ -269,7 +269,41 @@
     transform: translateY(-0.5rem);
   }
 
+  .skill-icon {
+    display: inline-flex;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+  }
 
+  .skill-icon svg {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .skill-card:hover .skill-icon {
+    transform: scale(1.1);
+  }
+
+  .skill-icon-1 {
+    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  }
+
+  .skill-icon-2 {
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  }
+
+  .skill-icon-3 {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  }
+
+  .skill-icon-4 {
+    background: linear-gradient(135deg, #f59e0b 0%, #dc2626 100%);
+  }
+
+  
   .about-footer {
     text-align: center;
   }
