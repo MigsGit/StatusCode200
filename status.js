@@ -126,11 +126,58 @@
         toggleActions: 'play none none reverse'
         }
     });
-    
+    // ScrollMagic animations
+    function initScrollMagic() {
+        const controller = new ScrollMagic.Controller();
+        
+        // Parallax effect for hero section
+        new ScrollMagic.Scene({
+        triggerElement: '.hero',
+        triggerHook: 0,
+        duration: '100%'
+        })
+        .setTween(gsap.to('.hero', {
+        y: '-50%',
+        ease: 'none'
+        }))
+        .addTo(controller);
+        
+        // Skill cards reveal animation
+        new ScrollMagic.Scene({
+        triggerElement: '.skills-grid',
+        triggerHook: 0.8,
+        duration: '50%'
+        })
+        .setTween(gsap.to('.skill-card', {
+        y: 0,
+        opacity: 1,
+        stagger: 0.1,
+        ease: 'power2.out'
+        }))
+        .addTo(controller);
+        
+        // Project cards reveal animation
+        new ScrollMagic.Scene({
+        triggerElement: '.projects-grid',
+        triggerHook: 0.8,
+        duration: '50%'
+        })
+        .setTween(gsap.to('.project-card', {
+        y: 0,
+        opacity: 1,
+        stagger: 0.1,
+        ease: 'power2.out'
+        }))
+        .addTo(controller);
+    }
+  
 
     // Initialize everything when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
         // Generate projects
         generateProjects();
+        
+        // Initialize ScrollMagic
+        initScrollMagic();
     });  
     
