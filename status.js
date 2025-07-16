@@ -111,7 +111,23 @@
       </div>
     `).join('');
     }
+
+    // Project cards stagger animation
+    gsap.from('.project-card', {
+        duration: 0.8,
+        y: 30,
+        opacity: 0,
+        stagger: 0.1,
+        ease: 'power2.out',
+        scrollTrigger: {
+        trigger: '.projects-grid',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+        }
+    });
     
+
     // Initialize everything when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
         // Generate projects
