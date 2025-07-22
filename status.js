@@ -67,7 +67,7 @@
     // Initialize Typed.js
     if (typedText) {
         new Typed(typedText, {
-        strings: ['Vue.js Enthusiast', 'Full Stack Developer', 'Problem Solver', 'Creative Coder'],
+        strings: ['Full Stack Developer'],
         typeSpeed: 50,
         backSpeed: 30,
         backDelay: 2000,
