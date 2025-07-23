@@ -132,28 +132,27 @@ body {
   text-align: left;
   order: 2;
 }
-  /* Hero Title */
+/* Hero Title */
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 640px) {
   .hero-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: white;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-    letter-spacing: -0.025em;
+    font-size: 3.5rem;
   }
+}
 
-  @media (min-width: 640px) {
-    .hero-title {
-      font-size: 3.5rem;
-    }
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 4rem;
   }
-
-  @media (min-width: 1024px) {
-    .hero-title {
-      font-size: 4rem;
-    }
-  }
-
+}
 
 /* Hero Subtitle */
 .hero-subtitle {
