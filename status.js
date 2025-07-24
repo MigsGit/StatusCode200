@@ -11,51 +11,59 @@
     const projects = [
         {
             id: 1,
-            title: "E-Commerce Platform",
-            description: "A full-stack e-commerce solution built with Laravel and Vue.js featuring user authentication, payment integration, and admin dashboard.",
-            image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-            tech: ["Laravel", "Vue.js", "MySQL", "Stripe"],
-            category: "Full Stack"
+            title: "4M Change Control Management",
+            description: "A full-stack change control management system built with Laravel and Vue.js featuring approval with email integration, excel export and monitoring.",
+            image: "content/analytics.jpg?auto=compress&cs=tinysrgb&w=800",
+            tech: ["Laravel", "Vue.js","Pinia", "MySQL", "Apache"],
+            category: "Full Stack",
+            button: 'project1'
         },
         {
             id: 2,
-            title: "Task Management App",
-            description: "A collaborative task management application with real-time updates, team collaboration features, and intuitive drag-and-drop interface.",
-            image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800",
-            tech: ["Vue.js", "Node.js", "Socket.io", "MongoDB"],
-            category: "Frontend"
+            title: "Ticketing System",
+            description: "A ticketing system is a software application used to manage and track customer support requests, service issues, or internal IT problems.",
+            image: "content/ticketing.jpg?auto=compress&cs=tinysrgb&w=800",
+            tech: ["Laravel", "Vue.js","Pinia", "MySQL", "Apache","Docker"],
+            category: "Full Stack",
+            button: 'project2'
         },
         {
             id: 3,
-            title: "Analytics Dashboard",
-            description: "A comprehensive analytics dashboard with interactive charts, real-time data visualization, and customizable reporting features.",
-            image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800",
-            tech: ["React", "D3.js", "Express", "PostgreSQL"],
-            category: "Dashboard"
+            title: "Product Automation Traceability System",
+            description: "From Warehouse to Shipping uses technology to track a product's journey from the moment it enters the warehouse until it's shipped, providing real-time visibility and control over inventory.",
+            image: "content/production.jpg?auto=compress&cs=tinysrgb&w=800",
+            tech: ["Laravel", "JQuery", "AJAX", "MYSQL","Apache","QRCode"],
+            category: "Full Stack",
+            button: 'project3'
         },
         {
             id: 4,
-            title: "Learning Management System",
-            description: "An educational platform with course management, video streaming, progress tracking, and interactive assessments.",
-            image: "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=800",
-            tech: ["Laravel", "Vue.js", "AWS", "Redis"],
-            category: "Education"
+            title: "IQC Inspection System",
+            description: "A RESTful API for social media application with user management, post creation, real-time notifications, and content moderation.",
+            image: "content/iqc.jpg?auto=compress&cs=tinysrgb&w=800",
+            tech: ["Laravel", "JQuery", "AJAX", "MYSQL","Apache","QRCode"],
+            category: "Full Stack",
+            button: 'project4'
+          
         },
         {
             id: 5,
-            title: "Social Media API",
-            description: "A RESTful API for social media application with user management, post creation, real-time notifications, and content moderation.",
-            image: "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800",
-            tech: ["PHP", "Laravel", "JWT", "Docker"],
-            category: "Backend"
+            title: "Power English LMS",
+            description: "An educational platform with course management, video streaming, progress tracking, and interactive assessments.",
+            image: "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=800",
+            tech: ["Laravel", "Vue.js","Pinia", "MySQL", "AWS","Docker"],
+            category: "Full Stack",
+            button: 'project5'
+        
         },
         {
             id: 6,
-            title: "Weather Forecast App",
-            description: "A beautiful weather application with location-based forecasts, interactive maps, and personalized weather alerts.",
+            title: "Machine Parameters System",
+            description: "A machine parameter system describes the set of values that define the operating characteristics and behavior of a machine.",
             image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
-            tech: ["Vue.js", "OpenWeather API", "Mapbox", "PWA"],
-            category: "Mobile"
+            tech: ["Laravel", "JQuery", "AJAX", "MYSQL","Apache","QRCode"],
+            category: "Full Stack",
+            button: 'project6'
         }
     ];
   
@@ -77,6 +85,7 @@
         });
     }
     
+  
   // Generate projects
   function generateProjects() {
   if (!projectsGrid) return;
@@ -93,7 +102,7 @@
             ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
           </div>
           <div class="project-actions">
-            <button class="btn btn-primary">
+            <button class="btn btn-primary btnViewProject" id="${project.button}"">
               <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                 <circle cx="12" cy="12" r="3"></circle>
@@ -111,6 +120,39 @@
       </div>
     `).join('');
   }
+
+  // Attach click event to all .btnViewProject buttons after projects are generated
+  function attachProjectButtonListeners() {
+    const projectButtons = document.querySelectorAll('.btnViewProject');
+    projectButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+          switch (this.id) {
+            case 'project1':
+              window.open('https://github.com/MigsGit/4MS', '_blank');
+              break;
+            case 'project2':
+              window.open('https://github.com/MigsGit/VueTicketingSystem', '_blank');
+              break;
+            case 'project3':
+              window.open('https://github.com/MigsGit/PATS-PPD', '_blank');
+              break;
+            case 'project4':
+              window.open('https://github.com/MigsGit/IqcInspectionSystem', '_blank');
+              break;
+            case 'project5':
+              window.open('https://github.com/MigsGit/PowerEnglishLMS', '_blank');
+              break;
+            case 'project6':
+              window.open('https://github.com/MigsGit/PatsPpdMprs', '_blank');
+              break;
+            default:
+              break;
+          }
+        return ;
+      });
+    });
+  }
+
   // Contact form handling
   function handleContactForm(e) {
     e.preventDefault();
@@ -183,13 +225,61 @@
       }
     });
   }
+  // ScrollMagic animations
+  function initScrollMagic() {
+    const controller = new ScrollMagic.Controller();
+    
+    // Parallax effect for hero section
+    new ScrollMagic.Scene({
+      triggerElement: '.hero',
+      triggerHook: 0,
+      duration: '100%'
+    })
+    .setTween(gsap.to('.hero', {
+      y: '-50%',
+      ease: 'none'
+    }))
+    .addTo(controller);
+    
+    // Skill cards reveal animation
+    new ScrollMagic.Scene({
+      triggerElement: '.skills-grid',
+      triggerHook: 0.8,
+      duration: '50%'
+    })
+    .setTween(gsap.to('.skill-card', {
+      y: 0,
+      opacity: 1,
+      stagger: 0.1,
+      ease: 'power2.out'
+    }))
+    .addTo(controller);
+    
+    // Project cards reveal animation
+    new ScrollMagic.Scene({
+      triggerElement: '.projects-grid',
+      triggerHook: 0.8,
+      duration: '50%'
+    })
+    .setTween(gsap.to('.project-card', {
+      y: 0,
+      opacity: 1,
+      stagger: 0.1,
+      ease: 'power2.out'
+    }))
+    .addTo(controller);
+  }
+
 
   // Initialize everything when DOM is loaded
   document.addEventListener('DOMContentLoaded', function() {
     // Generate projects
     generateProjects();
 
-      
+    // Attach listeners to project buttons
+    attachProjectButtonListeners();
+
+  
     // Initialize GSAP animations
     initGSAPAnimations();
     
