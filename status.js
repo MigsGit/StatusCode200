@@ -1,91 +1,108 @@
 // $(document).ready(function () {
 
 // Initialize AOS
-    AOS.init({
-        duration: 800,
-        easing: 'ease-out',
-        once: true,
-        offset: 100
-    });
-    // Projects data
-    const projects = [
-        {
-            id: 1,
-            title: "4M Change Control Management",
-            description: "A full-stack change control management system built with Laravel and Vue.js featuring approval with email integration, excel export and monitoring.",
-            image: "content/analytics.jpg?auto=compress&cs=tinysrgb&w=800",
-            tech: ["Laravel", "Vue.js","Pinia", "MySQL", "Apache"],
-            category: "Full Stack",
-            button: 'project1'
-        },
-        {
-            id: 2,
-            title: "Ticketing System",
-            description: "A ticketing system is a software application used to manage and track customer support requests, service issues, or internal IT problems.",
-            image: "content/ticketing.jpg?auto=compress&cs=tinysrgb&w=800",
-            tech: ["Laravel", "Vue.js","Pinia", "MySQL", "Apache","Docker"],
-            category: "Full Stack",
-            button: 'project2'
-        },
-        {
-            id: 3,
-            title: "Product Automation Traceability System",
-            description: "From Warehouse to Shipping uses technology to track a product's journey from the moment it enters the warehouse until it's shipped, providing real-time visibility and control over inventory.",
-            image: "content/production.jpg?auto=compress&cs=tinysrgb&w=800",
-            tech: ["Laravel", "JQuery", "AJAX", "MYSQL","Apache","QRCode"],
-            category: "Full Stack",
-            button: 'project3'
-        },
-        {
-            id: 4,
-            title: "IQC Inspection System",
-            description: "A RESTful API for social media application with user management, post creation, real-time notifications, and content moderation.",
-            image: "content/iqc.jpg?auto=compress&cs=tinysrgb&w=800",
-            tech: ["Laravel", "JQuery", "AJAX", "MYSQL","Apache","QRCode"],
-            category: "Full Stack",
-            button: 'project4'
-          
-        },
-        {
-            id: 5,
-            title: "Power English LMS",
-            description: "An educational platform with course management, video streaming, progress tracking, and interactive assessments.",
-            image: "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=800",
-            tech: ["Laravel", "Vue.js","Pinia", "MySQL", "AWS","Docker"],
-            category: "Full Stack",
-            button: 'project5'
+  AOS.init({
+      duration: 800,
+      easing: 'ease-out',
+      once: true,
+      offset: 100
+  });
+  // Projects data
+  const projects = [
+      {
+          id: 1,
+          title: "4M Change Control Management",
+          description: "A full-stack change control management system built with Laravel and Vue.js featuring approval with email integration, excel export and monitoring.",
+          image: "content/analytics.jpg?auto=compress&cs=tinysrgb&w=800",
+          tech: ["Laravel", "Vue.js","Pinia", "MySQL", "Apache"],
+          category: "Full Stack",
+          button: 'project1'
+      },
+      {
+          id: 2,
+          title: "Ticketing System",
+          description: "A ticketing system is a software application used to manage and track customer support requests, service issues, or internal IT problems.",
+          image: "content/ticketing.jpg?auto=compress&cs=tinysrgb&w=800",
+          tech: ["Laravel", "Vue.js","Pinia", "MySQL", "Apache","Docker"],
+          category: "Full Stack",
+          button: 'project2'
+      },
+      {
+          id: 3,
+          title: "Product Automation Traceability System",
+          description: "From Warehouse to Shipping uses technology to track a product's journey from the moment it enters the warehouse until it's shipped, providing real-time visibility and control over inventory.",
+          image: "content/production.jpg?auto=compress&cs=tinysrgb&w=800",
+          tech: ["Laravel", "JQuery", "AJAX", "MYSQL","Apache","QRCode"],
+          category: "Full Stack",
+          button: 'project3'
+      },
+      {
+          id: 4,
+          title: "IQC Inspection System",
+          description: "A RESTful API for social media application with user management, post creation, real-time notifications, and content moderation.",
+          image: "content/iqc.jpg?auto=compress&cs=tinysrgb&w=800",
+          tech: ["Laravel", "JQuery", "AJAX", "MYSQL","Apache","QRCode"],
+          category: "Full Stack",
+          button: 'project4'
         
-        },
-        {
-            id: 6,
-            title: "Machine Parameters System",
-            description: "A machine parameter system describes the set of values that define the operating characteristics and behavior of a machine.",
-            image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
-            tech: ["Laravel", "JQuery", "AJAX", "MYSQL","Apache","QRCode"],
-            category: "Full Stack",
-            button: 'project6'
-        }
-    ];
+      },
+      {
+          id: 5,
+          title: "Power English LMS",
+          description: "An educational platform with course management, video streaming, progress tracking, and interactive assessments.",
+          image: "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=800",
+          tech: ["Laravel", "Vue.js","Pinia", "MySQL", "AWS","Docker"],
+          category: "Full Stack",
+          button: 'project5'
+      
+      },
+      {
+          id: 6,
+          title: "Machine Parameters System",
+          description: "A machine parameter system describes the set of values that define the operating characteristics and behavior of a machine.",
+          image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
+          tech: ["Laravel", "JQuery", "AJAX", "MYSQL","Apache","QRCode"],
+          category: "Full Stack",
+          button: 'project6'
+      }
+  ];
+
+  // DOM Elements
+  const typedText = document.getElementById('typed-text');
+  const projectsGrid = document.getElementById('projectsGrid');
+  const contactForm = document.getElementById('contactForm');
+  const navLinks = document.querySelectorAll('.nav-link');
+
   
-    // DOM Elements
-    const typedText = document.getElementById('typed-text');
-    const projectsGrid = document.getElementById('projectsGrid');
-    const contactForm = document.getElementById('contactForm');
-    
     // Initialize Typed.js
-    if (typedText) {
-        new Typed(typedText, {
-        strings: ['Full Stack Developer'],
-        typeSpeed: 50,
-        backSpeed: 30,
-        backDelay: 2000,
-        loop: true,
-        showCursor: true,
-        cursorChar: '|'
-        });
-    }
-    
-  
+  if (typedText) {
+      new Typed(typedText, {
+      strings: ['Full Stack Developer'],
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 2000,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|'
+      });
+  }
+  // Smooth scrolling to sections
+function scrollToSection(sectionId) {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+  // Navigation link click handlers
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const section = link.getAttribute('data-section');
+      scrollToSection(section);
+    });
+  });
+
   // Generate projects
   function generateProjects() {
   if (!projectsGrid) return;
@@ -269,7 +286,6 @@
     }))
     .addTo(controller);
   }
-
 
   // Initialize everything when DOM is loaded
   document.addEventListener('DOMContentLoaded', function() {
