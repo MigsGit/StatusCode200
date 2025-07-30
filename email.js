@@ -48,7 +48,7 @@ class ContactForm {
     async handleSubmit() {
         try {
             const formData = this.getFormData();
-            
+            await this.sendEmail(formData);
         } catch (error) {
             console.log(error);
         } finally {
@@ -66,6 +66,24 @@ class ContactForm {
         }
         
         return data;
+    }
+    // Send email
+    async sendEmail(formData) {
+        return new Promise((resolve, reject) => {
+            emailjs.send(
+                emailSettings.serviceId,
+                emailSettings.templateId,
+                formData
+            )
+            .then((response) => {
+                console.log('Email sent:', response);
+                resolve(response);
+            })
+            .catch((error) => {
+                console.error('Email failed:', error);
+                reject(error);
+            });
+        });
     }
 }
 
