@@ -5,4 +5,28 @@ const emailSettings = {
     publicKey: 'DfD3G7yL-gBoZRsFV'
 };
 
-console.log(emailSettings);
+class ContactForm {
+    constructor() {
+        this.form = null;
+        this.submitBtn = null;
+        this.successMsg = null;
+        this.isSubmitting = false;
+        
+        console.log(this.isSubmitting);
+    }
+}
+
+// Start when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Setting up contact form...');
+    setTimeout(() => {
+        try {
+            const contactForm = new ContactForm();
+            window.contactForm = contactForm;
+            console.log('Contact form ready');
+        } catch (error) {
+            console.error('Failed to setup contact form:', error);
+        }
+    }, 100);
+});
+
