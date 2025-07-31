@@ -69,6 +69,8 @@ class ContactForm {
     }
     // Send email
     async sendEmail(formData) {
+        console.log(formData);
+        return;
         return new Promise((resolve, reject) => {
             emailjs.send(
                 emailSettings.serviceId,
@@ -100,4 +102,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 100);
 });
-

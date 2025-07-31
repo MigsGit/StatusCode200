@@ -162,48 +162,6 @@
       });
     });
   }
-
-  // Contact form handling
-  function handleContactForm(e) {
-    e.preventDefault();
-    
-    const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
-    
-    // Show loading state
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = `
-      <div class="loading-spinner"></div>
-      Sending...
-    `;
-    
-    // Simulate form submission
-    setTimeout(() => {
-      // Reset form
-      contactForm.reset();
-      
-      // Show success message
-      successMessage.classList.add('show');
-      
-      // Reset button
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = `
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <line x1="22" y1="2" x2="11" y2="13"></line>
-          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-        </svg>
-        Send Message
-      `;
-      
-      // Hide success message after 3 seconds
-      setTimeout(() => {
-        successMessage.classList.remove('show');
-      }, 3000);
-    }, 1000);
-  }
-
   // GSAP Animations
   function initGSAPAnimations() {
     
@@ -296,6 +254,5 @@
     initScrollMagic();
     
     // Event listeners
-    contactForm.addEventListener('submit', handleContactForm);
   });  
 // });
