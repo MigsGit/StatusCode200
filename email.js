@@ -71,6 +71,8 @@ class ContactForm {
         const value = field.value.trim();
         const fieldName = field.name;
         const rules = validationRules[fieldName];
+
+        this.clearError(field);
         
         
         let isValid = true;
@@ -120,7 +122,16 @@ class ContactForm {
         errorEl.textContent = message;
     }
     
-    
+    // Clear field error
+    clearError(field) {
+        field.style.borderColor = '';
+        field.style.boxShadow = '';
+        
+        const errorEl = field.parentNode.querySelector('.field-error');
+        if (errorEl) {
+            errorEl.remove();
+        }
+    }
     // Handle form submission
     async handleSubmit() {
         try {
