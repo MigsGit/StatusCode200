@@ -652,7 +652,28 @@ body {
   display: flex;
 }
 
+/* Error Message */
+.error-message {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgba(188, 29, 29, 0.2);
+  border: 1px solid rgba(188, 29, 29, 0.2);
+  border-radius: 0.5rem;
+  color: #a52727;
+  font-weight: 500;
+}
+
+.error-message.show {
+  display: flex;
+}
+
 .success-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+.error-icon {
   height: 1.25rem;
   width: 1.25rem;
 }

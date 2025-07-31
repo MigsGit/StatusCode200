@@ -23,7 +23,7 @@
           title: "Ticketing System",
           description: "A ticketing system is a software application used to manage and track customer support requests, service issues, or internal IT problems.",
           image: "content/ticketing.jpg?auto=compress&cs=tinysrgb&w=800",
-          tech: ["Laravel", "Vue.js","Pinia", "MySQL", "Apache","Docker"],
+          tech: ["Laravel", "Vue.js","Pinia", "Vite", "MySQL", "Apache","Docker"],
           category: "Full Stack",
           button: 'project2'
       },
@@ -50,7 +50,7 @@
           id: 5,
           title: "Power English LMS",
           description: "An educational platform with course management, video streaming, progress tracking, and interactive assessments.",
-          image: "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=800",
+          image: "content/learning.jpg?auto=compress&cs=tinysrgb&w=800",
           tech: ["Laravel", "Vue.js","Pinia","MySQL", "AWS","Docker"],
           category: "Full Stack",
           button: 'project5'
@@ -60,7 +60,7 @@
           id: 6,
           title: "Machine Parameters System",
           description: "A machine parameter system describes the set of values that define the operating characteristics and behavior of a machine.",
-          image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
+          image: "content/machine.jpg?auto=compress&cs=tinysrgb&w=800",
           tech: ["Laravel", "JQuery", "AJAX", "MYSQL","Apache","QRCode"],
           category: "Full Stack",
           button: 'project6'
