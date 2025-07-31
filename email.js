@@ -5,6 +5,21 @@ const emailSettings = {
     publicKey: 'DfD3G7yL-gBoZRsFV'
 };
 
+// Form validation rules
+const validationRules = {
+    name: {
+        minLength: 2,
+        message: 'Name must be at least 2 characters'
+    },
+    email: {
+        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        message: 'Please enter a valid email address'
+    },
+    message: {
+        minLength: 10,
+        message: 'Message must be at least 10 characters'
+    }
+};
 class ContactForm {
     constructor() {
         this.form = null;
@@ -40,10 +55,72 @@ class ContactForm {
         this.form.addEventListener('submit', (e) => {
             e.preventDefault();
             this.handleSubmit();
-            alert('handleSubmit');
+        });
 
+        // Real-time validation
+        const inputs = this.form.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => this.validateField(input));
         });
     }
+
+    // Validate single field
+    validateField(field) {
+        if (!field) return false;
+        
+        const value = field.value.trim();
+        const fieldName = field.name;
+        const rules = validationRules[fieldName];
+        
+        
+        let isValid = true;
+        let errorMessage = '';
+        
+        switch (fieldName) {
+            case 'name':
+                if (value.length < rules.minLength) {
+                    isValid = false;
+                    errorMessage = rules.message;
+                }
+                break;
+                
+            case 'email':
+                if (!rules.pattern.test(value)) {
+                    isValid = false;
+                    errorMessage = rules.message;
+                }
+                break;
+                
+            case 'message':
+                if (value.length < rules.minLength) {
+                    isValid = false;
+                    errorMessage = rules.message;
+                }
+                break;
+        }
+        
+        if (!isValid) {
+            this.showFieldError(field, errorMessage);
+        }
+        
+        return isValid;
+    }
+    // Show field error
+    showFieldError(field, message) {
+        field.style.borderColor = '#ef4444';
+        field.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+        
+        let errorEl = field.parentNode.querySelector('.field-error');
+        if (!errorEl) {
+            errorEl = document.createElement('div');
+            errorEl.className = 'field-error';
+            errorEl.style.cssText = 'color: #ef4444; font-size: 0.875rem; margin-top: 0.25rem;';
+            field.parentNode.appendChild(errorEl);
+        }
+        errorEl.textContent = message;
+    }
+    
+    
     // Handle form submission
     async handleSubmit() {
         try {
@@ -70,6 +147,14 @@ class ContactForm {
     // Send email
     async sendEmail(formData) {
         console.log(formData);
+        setTimeout(() => {
+            // Show success message & Hide success message after 3 seconds
+            successMessage.classList.add('show');
+
+            setTimeout(() => {
+            successMessage.classList.remove('show');
+            }, 3000);
+        }, 1000);
         return;
         return new Promise((resolve, reject) => {
             emailjs.send(
