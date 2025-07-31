@@ -134,6 +134,12 @@ class ContactForm {
     }
     // Handle form submission
     async handleSubmit() {
+        // Validate form
+        if (!this.validateForm()) {
+            this.showError('Please fill in all fields correctly');
+            return;
+        }
+    
         try {
             const formData = this.getFormData();
             await this.sendEmail(formData);
@@ -142,6 +148,19 @@ class ContactForm {
         } finally {
             console.log('Reload Action Here');
         }
+    }
+    // Validate entire form
+    validateForm() {
+        const fields = ['name', 'email', 'message'];
+        let isValid = true;
+        
+        fields.forEach(fieldName => {
+            const field = this.form.querySelector(`[name="${fieldName}"]`);
+            if (!this.validateField(field)) {
+                isValid = false;
+            }
+        });
+        return isValid;
     }
 
     // Get form data
@@ -157,16 +176,6 @@ class ContactForm {
     }
     // Send email
     async sendEmail(formData) {
-        console.log(formData);
-        setTimeout(() => {
-            // Show success message & Hide success message after 3 seconds
-            successMessage.classList.add('show');
-
-            setTimeout(() => {
-            successMessage.classList.remove('show');
-            }, 3000);
-        }, 1000);
-        return;
         return new Promise((resolve, reject) => {
             emailjs.send(
                 emailSettings.serviceId,
@@ -175,6 +184,7 @@ class ContactForm {
             )
             .then((response) => {
                 console.log('Email sent:', response);
+                this.handleSuccess();
                 resolve(response);
             })
             .catch((error) => {
@@ -182,6 +192,39 @@ class ContactForm {
                 reject(error);
             });
         });
+    }
+    // Handle success
+    handleSuccess() {
+        setTimeout(() => {
+            // Show success message & Hide success message after 3 seconds
+            this.resetForm();
+            successMessage.classList.add('show');
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 3000);
+        }, 500);
+    }
+    // Show error notification
+    showError(message) {
+        setTimeout(() => {
+            // Show success message & Hide success message after 3 seconds
+            const errorMsgEl = document.querySelector('.span-error-msg');
+            errorMsgEl.textContent = message
+            this.resetForm();
+            errorMessage.classList.add('show');
+            setTimeout(() => {
+                errorMessage.classList.remove('show');
+            }, 3000);
+        }, 500);
+    }
+    // Reset form
+    resetForm() {
+        if (this.form) {
+            this.form.reset();
+            
+            const fields = this.form.querySelectorAll('input, textarea');
+            fields.forEach(field => this.clearError(field));
+        }
     }
 }
 
