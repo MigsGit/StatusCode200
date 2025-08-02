@@ -211,6 +211,29 @@ body {
 
 
 /* Mobile Menu */
+.mobile-menu-btn {
+  display: block;
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+
+.mobile-menu-btn:hover {
+  color: #06b6d4;
+}
+
+.menu-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
 
 .mobile-nav {
   display: none;
