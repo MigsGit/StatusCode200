@@ -208,6 +208,32 @@ body {
 .nav-link:hover::after {
   width: 80%;
 }
+
+
+/* Mobile Menu */
+
+.mobile-nav {
+  display: none;
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #334155;
+}
+
+.mobile-nav.active {
+  display: block;
+}
+
+.nav-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
   
 /* Hero Section */
 .hero {
