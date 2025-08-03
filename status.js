@@ -72,7 +72,8 @@
   const projectsGrid = document.getElementById('projectsGrid');
   const contactForm = document.getElementById('contactForm');
   const navLinks = document.querySelectorAll('.nav-link');
-
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileNav = document.getElementById('mobileNav');
   
     // Initialize Typed.js
   if (typedText) {
@@ -237,6 +238,32 @@
     }))
     .addTo(controller);
   }
+  // Mobile menu toggle
+function toggleMobileMenu() {
+  console.log(mobileNav);
+  
+  mobileNav.classList.toggle('active');
+  const isOpen = mobileNav.classList.contains('active');
+  
+  // Change menu icon
+  const menuIcon = mobileMenuBtn.querySelector('.menu-icon');
+  console.log(menuIcon);
+  if (isOpen) {
+    menuIcon.innerHTML = `
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    `;
+  } else {
+    menuIcon.innerHTML = `
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    `;
+  }
+}
+
+mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
 
   // Initialize everything when DOM is loaded
   document.addEventListener('DOMContentLoaded', function() {
@@ -254,5 +281,7 @@
     initScrollMagic();
     
     // Event listeners
+
   });  
+
 // });
